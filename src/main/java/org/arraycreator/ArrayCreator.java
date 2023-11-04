@@ -1,6 +1,8 @@
 package org.arraycreator;
 
 import java.lang.reflect.Array;
+import javax.swing.*;
+import javax.swing.border.Border;
 
 // Class containing the createArray method
 public class ArrayCreator {
@@ -36,16 +38,58 @@ public class ArrayCreator {
         charArray[7] = 'A';
         booleanArray[8] = true;
 
-        // For demonstration, we print out the value of the first elements of the arrays
-        System.out.println("Integer Array first element: " + intArray[0]);
-        System.out.println("String Array first element: " + stringArray[1]);
-        System.out.println("Double Array first element: " + doubleArray[2]);
-        System.out.println("Byte Array first element: " + byteArray[3]);
-        System.out.println("Short Array first element: " + shortArray[4]);
-        System.out.println("Long Array first element: " + longArray[5]);
-        System.out.println("Float Array first element: " + floatArray[6]);
-        System.out.println("Character Array first element: " + charArray[7]);
-        System.out.println("Boolean Array first element: " + booleanArray[8]);
+        SwingUtilities.invokeLater(() -> createAndShowGUI(
+                intArray,
+                stringArray,
+                doubleArray,
+                byteArray,
+                shortArray,
+                longArray,
+                floatArray,
+                charArray,
+                booleanArray
+        ));
+    }
+
+    private static void createAndShowGUI(
+            Integer[] intArray,
+            String[] stringArray,
+            Double[] doubleArray,
+            Byte[] byteArray,
+            Short[] shortArray,
+            Long[] longArray,
+            Float[] floatArray,
+            Character[] charArray,
+            Boolean[] booleanArray) {
+        // Create and set up the window
+        JFrame frame = new JFrame("Array Creator Results");
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setLayout(new BoxLayout(frame.getContentPane(), BoxLayout.Y_AXIS));
+
+        // Create a border that puts 15 pixels of padding on all sides
+        Border padding = BorderFactory.createEmptyBorder(15, 15, 15, 15);
+
+        // Add labels to the frame for each array's first element, with padding
+        frame.add(createPaddedLabel("Integer Array first element: " + (intArray.length > 0 ? intArray[0] : "N/A"), padding));
+        frame.add(createPaddedLabel("String Array second element: " + (stringArray.length > 1 ? stringArray[1] : "N/A"), padding));
+        frame.add(createPaddedLabel("Double Array third element: " + (doubleArray.length > 2 ? doubleArray[2] : "N/A"), padding));
+        frame.add(createPaddedLabel("Byte Array fourth element: " + (byteArray.length > 3 ? byteArray[3] : "N/A"), padding));
+        frame.add(createPaddedLabel("Short Array fifth element: " + (shortArray.length > 4 ? shortArray[4] : "N/A"), padding));
+        frame.add(createPaddedLabel("Long Array sixth element: " + (longArray.length > 5 ? longArray[5] : "N/A"), padding));
+        frame.add(createPaddedLabel("Float Array seventh element: " + (floatArray.length > 6 ? floatArray[6] : "N/A"), padding));
+        frame.add(createPaddedLabel("Character Array eighth element: " + (charArray.length > 7 ? charArray[7] : "N/A"), padding));
+        frame.add(createPaddedLabel("Boolean Array ninth element: " + (booleanArray.length > 8 ? booleanArray[8] : "N/A"), padding));
+
+        // Display the window
+        frame.pack();
+        frame.setLocationRelativeTo(null);
+        frame.setVisible(true);
+    }
+
+    private static JLabel createPaddedLabel(String text, Border padding) {
+        JLabel label = new JLabel(text);
+        label.setBorder(padding);
+        return label;
     }
 
 }
