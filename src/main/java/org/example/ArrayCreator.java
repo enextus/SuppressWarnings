@@ -2,18 +2,18 @@ package org.example;
 
 import java.lang.reflect.Array;
 
-// Класс, содержащий метод createArray
+// Class containing the createArray method
 public class ArrayCreator {
 
-    // Метод для создания массива обобщенного типа
+    // Method for creating an array of a generic type
     public static <T> T[] createArray(Class<T> tClass, int arraySize) {
-        // Это вызовет предупреждение о непроверенном приведении
+        // This will cause an unchecked casting warning
         @SuppressWarnings("unchecked")
         T[] array = (T[]) Array.newInstance(tClass, arraySize);
         return array;
     }
 
-    // Пример использования метода createArray
+    // Example of using the createArray method
     public static void main(String[] args) {
         Integer[] intArray = createArray(Integer.class, 10);
         String[] stringArray = createArray(String.class, 5);
@@ -25,7 +25,7 @@ public class ArrayCreator {
         Character[] charArray = createArray(Character.class, 10);
         Boolean[] booleanArray = createArray(Boolean.class, 10);
 
-        // Пример инициализации элементов
+        // Example of initializing elements
         intArray[0] = 100;
         stringArray[1] = "Hello";
         doubleArray[2] = 99.99;
@@ -36,7 +36,7 @@ public class ArrayCreator {
         charArray[7] = 'A';
         booleanArray[8] = true;
 
-        // Для демонстрации выводим значение первых элементов массивов
+        // For demonstration, we print out the value of the first elements of the arrays
         System.out.println("Integer Array first element: " + intArray[0]);
         System.out.println("String Array first element: " + stringArray[1]);
         System.out.println("Double Array first element: " + doubleArray[2]);
