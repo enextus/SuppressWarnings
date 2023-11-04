@@ -1,4 +1,4 @@
-package org.example;
+package org.arraycreator;
 
 import java.lang.reflect.Array;
 
