@@ -6,7 +6,6 @@ import javax.swing.border.Border;
 
 // Class containing the createArray method
 public class ArrayCreator {
-
     // Method for creating an array of a generic type
     public static <T> T[] createArray(Class<T> tClass, int arraySize) {
         // This will cause an unchecked casting warning
@@ -61,6 +60,7 @@ public class ArrayCreator {
             Float[] floatArray,
             Character[] charArray,
             Boolean[] booleanArray) {
+
         // Create and set up the window
         JFrame frame = new JFrame("Array Creator Results");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
