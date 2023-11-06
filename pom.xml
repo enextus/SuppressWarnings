@@ -101,6 +101,7 @@
                 <version>3.11.0</version>
                 <configuration>
                     <compilerArgs>
+<!--                        <arg>-Xlint:-unchecked</arg> &lt;!&ndash; Здесь указано подавление предупреждений &ndash;&gt;-->
                         <arg>-Xlint:unchecked</arg>
                     </compilerArgs>
                 </configuration>
